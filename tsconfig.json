@@ -12,6 +12,7 @@
 			"@/*": ["./src/*"],
 			"@shared/*": ["./src/shared/*"],
 			"@modules/*": ["./src/modules/*"]
-		}
+		},
+		"verbatimModuleSyntax": true
 	}
 }
