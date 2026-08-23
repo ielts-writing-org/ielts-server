@@ -2,19 +2,17 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ielts-server",
   "main": "src/index.ts",
-  "compatibility_date": "2026-08-15"
-  // "compatibility_flags": [
-  //   "nodejs_compat"
-  // ],
+  "compatibility_date": "2026-08-15",
+  "compatibility_flags": ["nodejs_compat"],
   // "vars": {
   //   "MY_VAR": "my-variable"
   // },
-  // "kv_namespaces": [
-  //   {
-  //     "binding": "MY_KV_NAMESPACE",
-  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  //   }
-  // ],
+  "kv_namespaces": [
+    {
+      "binding": "dynamic_data",
+      "id": "cc61a444e44740b6b1d9ff59a1f3f75b"
+    }
+  ],
   // "r2_buckets": [
   //   {
   //     "binding": "MY_BUCKET",
@@ -28,11 +26,12 @@
   //     "database_id": ""
   //   }
   // ],
-  // "ai": {
-  //   "binding": "AI"
-  // },
-  // "observability": {
-  //   "enabled": true,
-  //   "head_sampling_rate": 1
-  // }
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
 }
