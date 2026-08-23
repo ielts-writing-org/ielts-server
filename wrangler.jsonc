@@ -9,7 +9,7 @@
   // },
   "kv_namespaces": [
     {
-      "binding": "dynamic_data",
+      "binding": "essay",
       "id": "cc61a444e44740b6b1d9ff59a1f3f75b"
     }
   ],
