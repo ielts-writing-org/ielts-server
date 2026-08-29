@@ -1,9 +1,29 @@
-import { Hono } from 'hono'
+import { inferdiHono } from '@inferdi/hono';
+import { cors } from 'hono/cors';
+import type { ContentfulStatusCode } from 'hono/utils/http-status';
+import { factory } from './app-env';
+import { buildRootContainer } from './container';
+import { handleOpenAPIRoute } from './openapi';
+import { handleScalarRoute } from './scalar';
+import { toErrorResponse } from './shared/errors';
 
-const app = new Hono<{Bindings: CloudflareBindings}>()
+const root = buildRootContainer();
+const app = factory.createApp();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.onError((error, c) => {
+	const { status, body } = toErrorResponse(error);
+	return c.json(body, status as ContentfulStatusCode);
+});
 
-export default app
+app.use('*', cors());
+app.use('*', inferdiHono({ container: root }));
+
+app.get('/', (c) => c.json({ status: 'ok' }));
+
+if (process.env.NODE_ENV === 'development') {
+	app.get('/openapi', handleOpenAPIRoute(app));
+	app.get('/scalar', handleScalarRoute());
+}
+
+
+export default app;
