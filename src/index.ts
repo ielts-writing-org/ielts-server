@@ -6,6 +6,7 @@ import { buildRootContainer } from './container';
 import { handleOpenAPIRoute } from './openapi';
 import { handleScalarRoute } from './scalar';
 import { toErrorResponse } from './shared/errors';
+import { task2Routes } from '@/modules/task2';
 
 const root = buildRootContainer();
 const app = factory.createApp();
@@ -25,5 +26,6 @@ if (process.env.NODE_ENV === 'development') {
 	app.get('/scalar', handleScalarRoute());
 }
 
+app.route('/api/v1/task2', task2Routes);
 
 export default app;
