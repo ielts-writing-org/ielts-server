@@ -10,10 +10,12 @@
 		"jsxImportSource": "hono/jsx",
 		"paths": {
 			"@/*": ["./src/*"],
-			"@shared/*": ["./src/shared/*"],
-			"@modules/*": ["./src/modules/*"]
+			"@shared/*": ["./src/shared/*"]
 		},
 		"verbatimModuleSyntax": true,
+		"rewriteRelativeImportExtensions": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
 		"types": [
 			"@cloudflare/vitest-plugin/types" // provides `cloudflare:test` and `cloudflare:workers` types
 		]

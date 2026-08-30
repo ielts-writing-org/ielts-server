@@ -19,10 +19,8 @@ In conclusion, the platform aims to make writing practice more interactive, resp
 2. Run the following command to install required libraries:
 
    ```bash
-   npm install --force
+   npm install
    ```
-
-   > `--force` flag is required as there are some problems with third-party libraries
 
 3. Run the following command to start the development server:
 

@@ -1,11 +1,13 @@
-// @ts-ignore
 import baseConfig from '@hono/eslint-config';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import { defineConfig, globalIgnores } from 'eslint/config';
+import { defineConfig, globalIgnores, includeIgnoreFile } from 'eslint/config';
 import globals from 'globals';
+import path from 'node:path';
+
+const gitignorePath = path.resolve(import.meta.dirname, '.gitignore');
 
 export default defineConfig(
-	globalIgnores(['.wrangler/**', 'dist/**', 'worker-configuration.d.ts', 'eslint.config.js']),
+	includeIgnoreFile(gitignorePath),
+	globalIgnores(['worker-configuration.d.ts', 'eslint.config.js']),
 	baseConfig,
 	{
 		files: ['**/*.ts'],
@@ -15,6 +17,5 @@ export default defineConfig(
 				projectService: true
 			}
 		}
-	},
-	eslintConfigPrettier
+	}
 );
