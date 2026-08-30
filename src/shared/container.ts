@@ -1,5 +1,5 @@
 import { Container } from '@inferdi/inferdi';
-import { registerTask2Container } from './modules/task2/container';
+import { registerTask2Container } from '@/features/task2/container';
 
 export type RootContainer = ReturnType<typeof buildRootContainer>;
 

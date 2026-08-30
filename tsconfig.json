@@ -9,8 +9,7 @@
 		"jsx": "react-jsx",
 		"jsxImportSource": "hono/jsx",
 		"paths": {
-			"@/*": ["./src/*"],
-			"@shared/*": ["./src/shared/*"]
+			"@/*": ["./src/*"]
 		},
 		"verbatimModuleSyntax": true,
 		"rewriteRelativeImportExtensions": true,

@@ -1,12 +1,12 @@
 import { inferdiHono } from '@inferdi/hono';
 import { cors } from 'hono/cors';
 import type { ContentfulStatusCode } from 'hono/utils/http-status';
-import { factory } from './app-env';
-import { buildRootContainer } from './container';
-import { handleOpenAPIRoute } from './openapi';
-import { handleScalarRoute } from './scalar';
+import { handleOpenAPIRoute } from './features/openapi/openapi';
+import { handleScalarRoute } from './features/scalar/scalar';
+import { task2Endpoint } from './features/task2';
+import { factory } from './shared/app-env';
+import { buildRootContainer } from './shared/container';
 import { toErrorResponse } from './shared/errors';
-import { task2Routes } from '@/modules/task2';
 
 const root = buildRootContainer();
 const app = factory.createApp();
@@ -26,6 +26,6 @@ if (process.env.NODE_ENV === 'development') {
 	app.get('/scalar', handleScalarRoute());
 }
 
-app.route('/api/v1/task2', task2Routes);
+app.route('/api/v1/task2', task2Endpoint);
 
 export default app;

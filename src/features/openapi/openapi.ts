@@ -1,6 +1,6 @@
 import type { Hono } from 'hono';
 import { openAPIRouteHandler } from 'hono-openapi';
-import type { AppEnv } from './app-env';
+import type { AppEnv } from '@/shared/app-env';
 
 export function handleOpenAPIRoute(app: Hono<AppEnv>) {
 	return openAPIRouteHandler(app, {
