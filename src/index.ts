@@ -26,6 +26,6 @@ if (process.env.NODE_ENV === 'development') {
 	app.get('/scalar', handleScalarRoute());
 }
 
-app.route('/api/v1/task2', task2Endpoint);
+app.route('/api/task2', task2Endpoint);
 
 export default app;
