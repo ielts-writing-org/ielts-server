@@ -1,5 +1,5 @@
 import { computeDeterministicStats } from '@ielts/shared';
-import { CONTAINER_CLASSES, CONTAINER_SCOPE_INPUTS } from './config';
+import { CONTAINER_CLASSES, CONTAINER_SCOPE_INPUTS } from '../shared/config';
 import { addTask2EvaluateOpenApiDef } from './openapi.middleware';
 import { validateTask2EvaluateRequest } from './zod.middleware';
 import { factory } from '@/shared/app-env';
@@ -13,7 +13,7 @@ task2EvaluateEndpoint.post(
 	async (c) => {
 		const request = c.req.valid('json');
 
-		const scope = c.var.di.createScope({
+		await using scope = c.var.di.createScope({
 			[CONTAINER_SCOPE_INPUTS.ai]: c.env.AI,
 			[CONTAINER_SCOPE_INPUTS.kvNamespace]: c.env.TASK2_KV
 		});

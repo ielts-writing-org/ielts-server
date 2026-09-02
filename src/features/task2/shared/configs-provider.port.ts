@@ -1,5 +1,6 @@
 export interface Configs {
 	evaluationPrompt: string;
+	chatPrompt: string;
 	responseSchema: Record<string, unknown>;
 }
 

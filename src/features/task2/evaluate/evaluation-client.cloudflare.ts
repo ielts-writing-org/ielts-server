@@ -1,5 +1,5 @@
-import { EVALUATION_MODEL } from './config';
-import type { ConfigsProvider } from './configs-provider.port';
+import { EVALUATION_MODEL } from '../shared/config';
+import type { ConfigsProvider } from '../shared/configs-provider.port';
 import type { EvaluateCommand, EvaluationClient } from './evaluation-client.port';
 
 export class CloudflareEvaluationClient implements EvaluationClient {
