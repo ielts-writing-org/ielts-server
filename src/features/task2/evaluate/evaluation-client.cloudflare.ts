@@ -19,7 +19,7 @@ export class CloudflareEvaluationClient implements EvaluationClient {
 			{
 				seed: EVALUATION_MODEL.seed,
 				temperature: EVALUATION_MODEL.temperature,
-				max_tokens: EVALUATION_MODEL.maxOutputTokens,
+				max_completion_tokens: EVALUATION_MODEL.maxOutputTokens,
 				messages: [
 					{ role: 'system', content: configs.evaluationPrompt },
 					{ role: 'user', content: JSON.stringify(command) }
@@ -31,6 +31,9 @@ export class CloudflareEvaluationClient implements EvaluationClient {
 						description: EVALUATION_MODEL.schemaDescription,
 						schema: configs.responseSchema
 					}
+				},
+				chat_template_kwargs: {
+					enable_thinking: false
 				},
 				stream: true
 			},

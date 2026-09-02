@@ -22,8 +22,7 @@ export const EVALUATION_MODEL: {
 	temperature: number;
 	maxOutputTokens: number;
 } = {
-	// id: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
-	id: '@cf/meta/llama-4-scout-17b-16e-instruct',
+	id: '@cf/google/gemma-4-26b-a4b-it',
 	schemaName: 'task2-evaluation',
 	schemaDescription: 'Evaluation of the IELTS Writing Task 2 response',
 	seed: 42,
